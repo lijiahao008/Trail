@@ -2,12 +2,13 @@ require 'rack'
 require_relative '../lib/controller_base.rb'
 require_relative '../lib/router'
 
-# Create an erroneous new dog to test the functionality of your Flash
+# Dog Model
 
 class Dog
   attr_reader :name, :owner
 
   def self.all
+    # Uses array to represent the database
     @dogs ||= []
   end
 
@@ -21,13 +22,13 @@ class Dog
   end
 
   def valid?
-    unless @owner.present?
-      errors << "Owner can't be blank"
+    unless owner.present?
+      errors << "Owner's name should not be blank"
       return false
     end
 
-    unless @name.present?
-      errors << "Name can't be blank"
+    unless name.present?
+      errors << "Name should not be blank"
       return false
     end
     true
@@ -36,7 +37,7 @@ class Dog
   def save
     return false unless valid?
 
-    Dog.all << self
+    Dog.all.push(self)
     true
   end
 
@@ -45,11 +46,13 @@ class Dog
   end
 end
 
+#Dogs controller
+
 class DogsController < ControllerBase
   def create
     @dog = Dog.new(params["dog"])
     if @dog.save
-      flash[:notice] = "Saved dog successfully"
+      flash[:notice] = "Dog saved successfully"
       redirect_to "/dogs"
     else
       flash.now[:errors] = @dog.errors
@@ -72,7 +75,6 @@ router = Router.new
 router.draw do
   get Regexp.new("^/dogs$"), DogsController, :index
   get Regexp.new("^/dogs/new$"), DogsController, :new
-  get Regexp.new("^/dogs/(?<id>\\d+)$"), DogsController, :show
   post Regexp.new("^/dogs$"), DogsController, :create
 end
 
