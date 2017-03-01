@@ -16,27 +16,22 @@ Trail is a lightweight MVC framework inspired by Ruby on Rails.
     - Otherwise raises a 404 error
 
 ### Session
-  - When there is a request, the `Controller` generates a new `Session` with the request's cookies associated with the app 
+  - When there is a request, the `Controller` generates a new `Session` with the request's cookies associated with the app
   - When the `Controller` generates a response, it stores the `Session` into the response's cookie
 
 ## Getting Started
 
 1. Clone this repository
 - Run `bundle install`
-- Place app code in `bin` folder (see `example_app.rb`)
-  - Define database entries
-  - Define controllers
-    - Have new controller inherit from `ControllerBase`
-    - Have response redirect or render
-      - `redirect_to(url)`
-      - `render_content(content, content_type)`
-      - `render(template_name)`
+- Place app code in `bin` folder (see `demo_app.rb`)
+  - Create new records through form or define database entries using json format
+  - Have new controller inherit from `ControllerBase`
+  - Set up redirect or render `redirect_to(url)` or `render_content(content, content_type)` or `render(template_name)`
   - Define routes
     ```ruby
     router = Router.new
     router.draw do
       <http_method> <pattern> <controller_class> <action_name>
-      ...
     end
     ```
 - Place views for each controller in `/views` folder; name should be snake_case version of `Controller` class name
@@ -52,7 +47,7 @@ Trail is a lightweight MVC framework inspired by Ruby on Rails.
 
 
 ```ruby
-# bin/example_app.rb
+# bin/demo_app.rb
 
 # required gems/files
 require 'rack'
