@@ -12,8 +12,8 @@ class ControllerBase
   # Initialize the controller
   def initialize(req, res, params = {})
     @req, @res = req, res
-    @params = params.merge(req.params)
     @responsed = false
+    @params = params.merge(req.params)
   end
 
   # Helper method to reflect @responsed
