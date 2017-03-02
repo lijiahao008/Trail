@@ -23,7 +23,7 @@ Trail is a lightweight MVC framework inspired by Ruby on Rails.
 
 1. Clone this repository
 - Run `bundle install`
-- Place app code in `bin` folder (see `demo_app.rb`)
+- Place app code in `bin` folder (see `bin/demo_app.rb`)
   - Create new records through form or define database entries using json format
   - Have new controller inherit from `ControllerBase`
   - Set up redirect or render `redirect_to(url)` or `render_content(content, content_type)` or `render(template_name)`
@@ -37,11 +37,11 @@ Trail is a lightweight MVC framework inspired by Ruby on Rails.
     ```
 - Place corresponding views for each controller under `/views` folder;
 - In terminal, run `ruby bin/<file_name>.rb`
-- See result at `localhost:3000` in your browser
+- Visit `localhost:3000` in the browser and type in your desired route in the address bar.
 
 ### Demo Code
 
 - run `ruby bin/demo_app.rb` in the terminal
-- visit the following two routes:
+- visit `localhost:3000` and type in the following two routes:
   - `/dogs`: displays all dogs
   - `/dogs/new`: displays a new dog creating form

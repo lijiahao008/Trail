@@ -5,7 +5,7 @@ require_relative '../lib/router'
 # Dog Model
 
 class Dog
-  attr_reader :name, :owner
+  attr_reader :name, :dob
 
   def self.all
     # Uses array to represent the database
@@ -14,16 +14,17 @@ class Dog
 
   def initialize(params = {})
     params ||= {}
-    @name, @owner = params["name"], params["owner"]
+    @name, @dob = params["name"], params["dob"]
   end
 
   def errors
+    #initialize with an empty array or existing errors
     @errors ||= []
   end
 
   def valid?
-    unless owner.present?
-      errors << "Owner's name should not be blank"
+    unless dob.present?
+      errors << "Birthday should not be blank"
       return false
     end
 
@@ -41,9 +42,7 @@ class Dog
     true
   end
 
-  def inspect
-    { name: name, owner: owner }.inspect
-  end
+
 end
 
 #Dogs controller
