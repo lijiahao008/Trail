@@ -45,7 +45,8 @@ Trail is a lightweight MVC framework inspired by Ruby on Rails.
 
 ### Demo Code
 
-- run `ruby bin/demo_app.rb` in the terminal
-- visit `localhost:3000` and type in the following two routes:
+- Run `bundle install`
+- Run `ruby bin/demo_app.rb` in the terminal
+- Visit `localhost:3000` and type in the following two routes:
   - `/dogs`: displays all dogs
   - `/dogs/new`: displays a new dog creating form
