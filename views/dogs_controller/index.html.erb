@@ -4,7 +4,6 @@
   Notice: <%= flash[:notice] %>
 <% end %>
 
-<<<<<<< HEAD
 <% if @dogs.empty? %>
   <h2>There is no records of dogs yet.</h2>
 <% else %>
@@ -12,10 +11,4 @@
     <h3>Name: <%= dog.name %></h3>
     <h3>Date of Birth: <%= dog.dob %></h3>
   <% end %>
-=======
-<% @dogs.each do |dog| %>
-  <h3>Name: <%= dog.name %></h3>
-  <h3>Date of Birth: <%= dog.dob %></h3>
->>>>>>> f911111db45e082e48afa2fd0645f8c8695229a3
-<% end %>
 <a href="/dogs/new">Create a New Dog</a>
