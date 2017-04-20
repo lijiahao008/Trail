@@ -1,0 +1,10 @@
+<h1><%= @cat.name %></h1>
+
+<% if flash[:notice] %>
+  Notice: <%= flash[:notice] %>
+<% end %>
+
+<h3>Name: <%= @cat.name %></h3>
+<h3>Description: <%= @cat.description %></h3>
+
+<a href="/cats/new">Create a New Cat</a>

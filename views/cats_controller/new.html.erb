@@ -1,0 +1,17 @@
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <%= error %>
+  <% end %>
+<% end %>
+
+<form action="/cats" method="POST">
+  <label>Name
+    <input type="text" name="cat[name]" value="<%= @cat.name %>">
+  </label>
+  </br>
+  <label>Description
+    <textarea name="cat[description]"><%= @cat.description %></textarea>
+  </label>
+
+  <input type="submit">
+</form>

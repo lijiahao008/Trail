@@ -1,0 +1,22 @@
+<h1>FUNNY CATS</h1>
+
+<% if flash[:notice] %>
+  Notice: <%= flash[:notice] %>
+<% end %>
+
+<% if flash[:errors] %>
+  Errors:
+  <% flash[:errors].each do |error| %>
+    <h4><%= error %></h4>
+  <% end %>
+<% end %>
+
+<% if @cats.empty? %>
+  <h2>There is no records of cats yet.</h2>
+<% else %>
+  <% @cats.each do |cat| %>
+    <h3>Name: <a href="cats/<%= cat.id %>"><%= cat.name %></a></h3>
+    <h3>Description: <%= cat.description %></h3>
+  <% end %>
+<% end %>
+<a href="/cats/new">Create a New Cat</a>
